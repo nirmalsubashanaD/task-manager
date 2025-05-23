@@ -7,9 +7,10 @@ pipeline {
 
 
     environment {
-        DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
+        // DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
+        DOCKER_IMAGE = 'nirmalsubashana/ jenkins/jenkins:lts
+'
     }
-
     stages {
         stage('Build') {
             steps {
