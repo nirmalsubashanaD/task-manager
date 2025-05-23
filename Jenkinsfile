@@ -2,26 +2,14 @@ pipeline {
     agent any
 
     tools {
-        nodejs "Node 18"
-    }
+    nodejs "Node 18"
+}
+
 
     environment {
         DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
     }
-
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir()
-            }
-        }
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -65,5 +53,11 @@ pipeline {
                 echo 'Monitoring is done using Prometheus and Grafana (manually configured)'
             }
         }
+        stage('Clean Workspace') {
+    steps {
+        deleteDir()
+    }
+}
+
     }
 }
