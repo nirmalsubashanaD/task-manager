@@ -2,15 +2,26 @@ pipeline {
     agent any
 
     tools {
-    nodejs "Node 18"
-}
-
+        nodejs "Node 18"
+    }
 
     environment {
-        // DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
-        DOCKER_IMAGE = 'nirmalsubashana/jenkins/jenkins:lts'
+        DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
     }
+
     stages {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'npm install'
