@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS 18"
-    }
+    nodejs "Node 18"
+}
+
 
     environment {
         DOCKER_IMAGE = 'nirmalsubashana/task-manager:latest'
